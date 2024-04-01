@@ -1,0 +1,18 @@
+grpc:
+  server:
+    port: ${GRPC_PORT}
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:${POSTGRES_LOCAL_PORT}/postgres?currentSchema=${POSTGRES_DATABASE}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_ROOT_PASSWORD}

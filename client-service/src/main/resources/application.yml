@@ -1,0 +1,13 @@
+grpc:
+  client:
+    grpc-bookstore-service:
+      address: static://localhost:${GRPC_PORT}
+      negotiation-type: plaintext
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
